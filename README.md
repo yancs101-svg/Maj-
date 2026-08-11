@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contagem para o Grande Dia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep:#122036;
+    --navy-mid:#1c3455;
+    --navy-soft:#28466f;
+    --sky:#6fa8c9;
+    --gold:#f5a623;
+    --gold-light:#ffd873;
+    --cream:#fff6e6;
+    --brown:#5c3a21;
+    --text:#f4efe3;
+    --text-dim:#b9c6d9;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -10%, #23446c 0%, transparent 60%),
+      linear-gradient(180deg, var(--navy-deep) 0%, #0e1a2c 100%);
+    color:var(--text);
+    font-family:'Work Sans', sans-serif;
+    min-height:100vh;
+    padding:48px 20px 80px;
+    overflow-x:hidden;
+  }
+  .stars{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;}
+  .wrap{max-width:920px;margin:0 auto;position:relative;z-index:1;}
+
+  /* ---------- HERO ---------- */
+  .hero{text-align:center;margin-bottom:64px;position:relative;}
+  .sun-rig{width:280px;height:280px;margin:0 auto 8px;position:relative;}
+  .petal{
+    position:absolute;top:50%;left:50%;
+    width:34px;height:96px;
+    background:linear-gradient(180deg, var(--gold-light), var(--gold));
+    border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
+    transform-origin:50% 100%;
+    box-shadow:0 0 18px rgba(245,166,35,.25);
+  }
+  .sun-core{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:118px;height:118px;border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #7a4e2c, var(--brown) 70%);
+    box-shadow:inset 0 0 20px rgba(0,0,0,.4), 0 0 40px rgba(245,166,35,.35);
+    display:flex;align-items:center;justify-content:center;
+    z-index:2;
+  }
+  .sun-core span{font-family:'Fraunces',serif;font-size:15px;color:var(--gold-light);letter-spacing:.08em;}
+  .sun-rig{animation:sway 8s ease-in-out infinite;}
+  @keyframes sway{
+    0%,100%{transform:rotate(-2deg);}
+    50%{transform:rotate(2deg);}
+  }
+
+  .eyebrow{
+    font-size:13px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--sky);margin-bottom:10px;font-weight:600;
+  }
+  h1{
+    font-family:'Fraunces',serif;font-weight:600;
+    font-size:clamp(28px,4.4vw,44px);
+    margin:0 0 6px;color:var(--text);
+  }
+  .subdate{color:var(--text-dim);font-size:15px;margin-bottom:14px;}
+  .verse{
+    color:var(--sky);font-family:'Fraunces',serif;font-style:italic;
+    font-size:13.5px;max-width:420px;margin:0 auto 36px;line-height:1.5;
+    opacity:.85;
+  }
+
+  .countdown{
+    display:flex;justify-content:center;gap:14px;flex-wrap:wrap;
+  }
+  .cbox{
+    background:linear-gradient(180deg, var(--navy-mid), var(--navy-soft));
+    border:1px solid rgba(245,166,35,.18);
+    border-radius:14px;
+    padding:18px 22px;
+    min-width:92px;
+    box-shadow:0 8px 24px rgba(0,0,0,.25);
+  }
+  .cbox .num{
+    font-family:'Fraunces',serif;font-size:clamp(30px,5vw,46px);
+    font-variant-numeric:tabular-nums;
+    color:var(--gold-light);font-weight:600;line-height:1;
+  }
+  .cbox .lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim);margin-top:8px;}
+
+  /* ---------- SECTIONS ---------- */
+  section{margin-top:64px;}
+  .section-head{margin-bottom:22px;}
+  .section-head .eyebrow{margin-bottom:6px;}
+  .section-head h2{font-family:'Fraunces',serif;font-size:24px;margin:0;font-weight:600;}
+  .section-head p{color:var(--text-dim);font-size:14px;margin:6px 0 0;}
+
+  /* ---------- FEATURED ---------- */
+  .featured-panel{
+    background:
+      radial-gradient(ellipse 120% 100% at 15% 0%, rgba(245,166,35,.16), transparent 55%),
+      linear-gradient(160deg, rgba(245,166,35,.08), rgba(28,52,85,.5)),
+      var(--navy-mid);
+    border:1.5px solid rgba(245,166,35,.4);
+    border-radius:24px;
+    padding:52px 46px;
+    position:relative;
+    min-height:150px;
+    display:flex;align-items:center;gap:28px;
+    box-shadow:0 12px 40px rgba(0,0,0,.35), 0 0 60px rgba(245,166,35,.06);
+    overflow:hidden;
+  }
+  .featured-panel::after{
+    content:"";
+    position:absolute;top:-40%;right:-10%;width:220px;height:220px;
+    background:radial-gradient(circle, rgba(245,166,35,.18), transparent 70%);
+    pointer-events:none;
+  }
+  .featured-panel::before{
+    content:"❀";
+    font-size:44px;color:var(--gold);
+    flex-shrink:0;
+    filter:drop-shadow(0 0 12px rgba(245,166,35,.4));
+    animation:bloom 6s ease-in-out infinite;
+  }
+  @keyframes bloom{
+    0%,100%{transform:scale(1) rotate(0deg);}
+    50%{transform:scale(1.08) rotate(6deg);}
+  }
+  .featured-text{
+    font-family:'Fraunces',serif;font-size:clamp(22px,3.2vw,32px);
+    line-height:1.5;color:var(--cream);
+    font-style:italic;font-weight:500;
+    position:relative;z-index:1;
+  }
+  .featured-empty{color:var(--text-dim);font-family:'Work Sans',sans-serif;font-style:normal;font-size:15px;}
+
+  /* ---------- COMPOSER ---------- */
+  .composer{display:flex;gap:10px;flex-wrap:wrap;}
+  textarea{
+    flex:1;min-width:220px;
+    background:var(--navy-mid);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:12px;
+    padding:14px 16px;
+    color:var(--text);font-family:'Work Sans',sans-serif;font-size:15px;
+    resize:vertical;min-height:52px;
+  }
+  textarea:focus{outline:none;border-color:var(--gold);}
+  button{
+    font-family:'Work Sans',sans-serif;font-weight:600;font-size:14px;
+    border:none;border-radius:12px;cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-add{
+    background:linear-gradient(180deg, var(--gold-light), var(--gold));
+    color:#2b1c0a;padding:0 26px;
+  }
+  .btn-add:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(245,166,35,.35);}
+  .btn-add:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none;}
+
+  /* ---------- MESSAGE LIST ---------- */
+  .msg-list{display:flex;flex-direction:column;gap:10px;margin-top:20px;}
+  .msg-card{
+    display:flex;align-items:flex-start;gap:12px;
+    background:var(--navy-mid);
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:14px;
+    padding:14px 16px;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .msg-card.is-featured{
+    border-color:var(--gold);
+    background:linear-gradient(90deg, rgba(245,166,35,.10), var(--navy-mid) 40%);
+  }
+  .msg-card .txt{flex:1;font-size:14.5px;line-height:1.5;color:var(--text);white-space:pre-wrap;}
+  .msg-card .meta{font-size:11px;color:var(--text-dim);margin-top:4px;}
+  .msg-actions{display:flex;gap:6px;flex-shrink:0;}
+  .icon-btn{
+    background:transparent;border:1px solid rgba(255,255,255,.12);
+    color:var(--text-dim);width:32px;height:32px;border-radius:9px;
+    font-size:15px;display:flex;align-items:center;justify-content:center;
+    padding:0;
+  }
+  .icon-btn:hover{border-color:var(--gold);color:var(--gold-light);}
+  .icon-btn.active{background:var(--gold);border-color:var(--gold);color:#2b1c0a;}
+  .empty-hint{color:var(--text-dim);font-size:14px;padding:18px 0;text-align:center;}
+
+  /* ---------- TRIP INFO ---------- */
+  .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;}
+  .info-card{
+    background:var(--navy-mid);border:1px solid rgba(255,255,255,.06);
+    border-radius:14px;padding:16px 18px;
+  }
+  .info-card .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);margin-bottom:6px;}
+  .info-card textarea.mini{
+    width:100%;background:transparent;border:none;color:var(--text);
+    font-family:'Work Sans',sans-serif;font-size:14.5px;padding:0;min-height:44px;resize:vertical;
+  }
+  .info-card textarea.mini:focus{outline:none;}
+
+  .info-card.wide{
+    grid-column:1 / -1;
+    background:linear-gradient(160deg, rgba(245,166,35,.08), rgba(28,52,85,.4)), var(--navy-mid);
+    border-color:rgba(245,166,35,.25);
+    padding:22px 26px;
+    position:relative;
+  }
+  .info-card.wide::before{
+    content:"\201C";
+    position:absolute;top:6px;left:20px;
+    font-family:'Fraunces',serif;font-size:46px;color:var(--gold);opacity:.4;
+    line-height:1;
+  }
+  .info-card.wide .k{color:var(--gold-light);}
+  .info-card.wide textarea.mini{
+    font-family:'Fraunces',serif;font-style:italic;font-size:18px;line-height:1.55;
+    color:var(--cream);min-height:64px;padding-left:4px;
+  }
+
+  footer{
+    text-align:center;margin-top:70px;color:var(--text-dim);
+    font-size:13px;font-family:'Fraunces',serif;font-style:italic;
+    max-width:480px;margin-left:auto;margin-right:auto;line-height:1.6;
+    opacity:.8;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .sun-rig{animation:none;}
+    .featured-panel::before{animation:none;}
+  }
+
+  /* ---------- MOBILE ---------- */
+  @media (max-width: 560px){
+    body{padding:32px 14px 56px;}
+    .hero{margin-bottom:44px;}
+    .sun-rig{width:190px;height:190px;}
+    .petal{width:24px;height:66px;}
+    .sun-core{width:82px;height:82px;}
+    .sun-core span{font-size:12px;}
+    h1{font-size:24px;line-height:1.25;}
+    .subdate{font-size:13.5px;}
+    .verse{font-size:12.5px;max-width:280px;margin-bottom:28px;}
+
+    .countdown{gap:8px;}
+    .cbox{
+      padding:12px;
+      min-width:0;
+      width:calc(50% - 4px);
+    }
+    .cbox .num{font-size:28px;}
+    .cbox .lbl{font-size:9.5px;}
+
+    section{margin-top:44px;}
+    .section-head h2{font-size:20px;}
+    .section-head p{font-size:13px;}
+
+    .featured-panel{
+      padding:28px 20px;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:14px;
+      border-radius:18px;
+    }
+    .featured-panel::before{font-size:30px;}
+    .featured-panel::after{width:150px;height:150px;}
+    .featured-text{font-size:19px;}
+
+    .composer{flex-direction:column;}
+    textarea{min-width:0;font-size:16px;}
+    .btn-add{width:100%;padding:14px 0;}
+
+    .msg-card{padding:12px;border-radius:12px;}
+    .msg-card .txt{font-size:14px;}
+
+    .info-grid{grid-template-columns:1fr;}
+    .info-card{padding:14px 16px;}
+    .info-card.wide{padding:20px 18px 18px;}
+    .info-card.wide textarea.mini{font-size:16px;}
+
+    footer{margin-top:48px;font-size:11px;}
+  }
+</style>
+</head>
+<body>
+<canvas class="stars" id="stars"></canvas>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="sun-rig" id="sunRig">
+      <div class="sun-core"><span id="daysCore">--</span></div>
+    </div>
+    <div class="eyebrow">04 de setembro de 2026</div>
+    <h1>Faltam poucos dias</h1>
+    <div class="verse">"Este é o dia que o Senhor fez; regozijemo-nos e alegremo-nos nele." — Salmos 118:24</div>
+
+    <div class="countdown">
+      <div class="cbox"><div class="num" id="d">00</div><div class="lbl">dias</div></div>
+      <div class="cbox"><div class="num" id="h">00</div><div class="lbl">horas</div></div>
+      <div class="cbox"><div class="num" id="m">00</div><div class="lbl">minutos</div></div>
+      <div class="cbox"><div class="num" id="s">00</div><div class="lbl">segundos</div></div>
+    </div>
+  </div>
+
+  <section>
+    <div class="section-head">
+      <div class="eyebrow">Em destaque</div>
+      <h2>A mensagem do momento</h2>
+    </div>
+    <div class="featured-panel">
+      <div class="featured-text" id="featuredText">
+        <span class="featured-empty">Nenhuma mensagem em destaque ainda. Escreva algo abaixo e marque com a estrela ✦</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="eyebrow">Mural</div>
+      <h2>Suas mensagens</h2>
+    </div>
+
+    <div class="composer">
+      <textarea id="newMsg" placeholder="Escreva uma mensagem..."></textarea>
+      <button class="btn-add" id="addBtn">Adicionar</button>
+    </div>
+
+    <div class="msg-list" id="msgList">
+      <div class="empty-hint" id="loadingHint">Carregando mensagens...</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="eyebrow">Só nosso</div>
+    </div>
+    <div class="info-grid" id="infoGrid"></div>
+  </section>
+
+  <footer>"Tudo o que é verdadeiro, tudo o que é honesto, tudo o que é justo, tudo o que é puro, tudo o que é amável, tudo o que é de boa fama, se há alguma virtude, e se há algum louvor, nisso pensai." — Filipenses 4:8</footer>
+</div>
+
+<script>
+/* ---------- Estrelas de fundo (canvas leve) ---------- */
+(function(){
+  const c = document.getElementById('stars');
+  const ctx = c.getContext('2d');
+  function resize(){ c.width = window.innerWidth; c.height = window.innerHeight; draw(); }
+  let pts = [];
+  function draw(){
+    pts = [];
+    const n = Math.floor((c.width*c.height)/9000);
+    for(let i=0;i<n;i++){
+      pts.push({x:Math.random()*c.width, y:Math.random()*c.height, r:Math.random()*1.3+.2, o:Math.random()*.6+.15});
+    }
+    render();
+  }
+  function render(){
+    ctx.clearRect(0,0,c.width,c.height);
+    pts.forEach(p=>{
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle = `rgba(255,246,230,${p.o})`;
+      ctx.fill();
+    });
+  }
+  window.addEventListener('resize', resize);
+  resize();
+})();
+
+/* ---------- Pétalas do girassol (SVG-like via div) ---------- */
+(function(){
+  const rig = document.getElementById('sunRig');
+  const petalCount = 14;
+  for(let i=0;i<petalCount;i++){
+    const p = document.createElement('div');
+    p.className = 'petal';
+    const angle = (360/petalCount)*i;
+    p.style.transform = `translate(-50%,-100%) rotate(${angle}deg)`;
+    rig.insertBefore(p, rig.firstChild);
+  }
+})();
+
+/* ---------- Contagem regressiva ---------- */
+const TARGET = new Date('2026-09-04T00:00:00-03:00').getTime();
+function pad(n){ return String(n).padStart(2,'0'); }
+function tick(){
+  const now = Date.now();
+  let diff = TARGET - now;
+  const elId = ['d','h','m','s'];
+  if(diff <= 0){
+    ['d','h','m','s'].forEach(id => document.getElementById(id).textContent = '00');
+    document.getElementById('daysCore').textContent = 'Hoje!';
+    return;
+  }
+  const days = Math.floor(diff/(1000*60*60*24));
+  const hours = Math.floor((diff/(1000*60*60))%24);
+  const mins = Math.floor((diff/(1000*60))%60);
+  const secs = Math.floor((diff/1000)%60);
+  document.getElementById('d').textContent = pad(days);
+  document.getElementById('h').textContent = pad(hours);
+  document.getElementById('m').textContent = pad(mins);
+  document.getElementById('s').textContent = pad(secs);
+  document.getElementById('daysCore').textContent = days + (days===1 ? ' dia' : ' dias');
+}
+tick();
+setInterval(tick, 1000);
+
+const fmt = new Intl.DateTimeFormat('pt-BR', { weekday:'long', day:'2-digit', month:'long', year:'numeric', timeZone:'America/Sao_Paulo' });
+
+/* ---------- Estado + persistência ---------- */
+const STORAGE_KEY = 'maju-dashboard-data';
+let state = { messages: [], featuredId: null, info: {} };
+
+function escapeHtml(str){
+  const d = document.createElement('div');
+  d.textContent = str;
+  return d.innerHTML;
+}
+
+async function loadState(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(raw){
+      const parsed = JSON.parse(raw);
+      state = Object.assign({ messages: [], featuredId: null, info: {} }, parsed);
+    }
+  }catch(e){
+    console.warn('Nada salvo ainda ou erro ao carregar:', e);
+  }
+  renderMessages();
+  renderInfo();
+}
+
+async function saveState(){
+  try{
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  }catch(e){
+    console.error('Erro ao salvar:', e);
+  }
+}
+
+function renderFeatured(){
+  const box = document.getElementById('featuredText');
+  const msg = state.messages.find(m => m.id === state.featuredId);
+  if(msg){
+    box.innerHTML = escapeHtml(msg.text).replace(/\n/g,'<br>');
+  } else {
+    box.innerHTML = '<span class="featured-empty">Nenhuma mensagem em destaque ainda. Escreva algo abaixo e marque com a estrela ✦</span>';
+  }
+}
+
+function renderMessages(){
+  const list = document.getElementById('msgList');
+  list.innerHTML = '';
+  if(state.messages.length === 0){
+    list.innerHTML = '<div class="empty-hint">Nenhuma mensagem ainda. Escreva a primeira acima.</div>';
+    renderFeatured();
+    return;
+  }
+  const sorted = [...state.messages].sort((a,b)=> b.createdAt - a.createdAt);
+  sorted.forEach(msg=>{
+    const card = document.createElement('div');
+    card.className = 'msg-card' + (msg.id === state.featuredId ? ' is-featured' : '');
+    const date = new Date(msg.createdAt);
+    const dateLabel = date.toLocaleDateString('pt-BR', { day:'2-digit', month:'2-digit', year:'numeric' });
+
+    const txt = document.createElement('div');
+    txt.style.flex = '1';
+    const p = document.createElement('div');
+    p.className = 'txt';
+    p.textContent = msg.text;
+    const meta = document.createElement('div');
+    meta.className = 'meta';
+    meta.textContent = dateLabel;
+    txt.appendChild(p);
+    txt.appendChild(meta);
+
+    const actions = document.createElement('div');
+    actions.className = 'msg-actions';
+
+    const starBtn = document.createElement('button');
+    starBtn.className = 'icon-btn' + (msg.id === state.featuredId ? ' active' : '');
+    starBtn.title = 'Destacar';
+    starBtn.innerHTML = '&#10022;';
+    starBtn.onclick = () => {
+      state.featuredId = (state.featuredId === msg.id) ? null : msg.id;
+      renderMessages();
+      saveState();
+    };
+
+    const delBtn = document.createElement('button');
+    delBtn.className = 'icon-btn';
+    delBtn.title = 'Excluir';
+    delBtn.innerHTML = '&times;';
+    delBtn.onclick = () => {
+      state.messages = state.messages.filter(m => m.id !== msg.id);
+      if(state.featuredId === msg.id) state.featuredId = null;
+      renderMessages();
+      saveState();
+    };
+
+    actions.appendChild(starBtn);
+    actions.appendChild(delBtn);
+    card.appendChild(txt);
+    card.appendChild(actions);
+    list.appendChild(card);
+  });
+  renderFeatured();
+}
+
+document.getElementById('addBtn').onclick = () => {
+  const ta = document.getElementById('newMsg');
+  const val = ta.value.trim();
+  if(!val) return;
+  state.messages.push({ id: 'm_' + Date.now() + '_' + Math.random().toString(36).slice(2,7), text: val, createdAt: Date.now() });
+  ta.value = '';
+  renderMessages();
+  saveState();
+};
+document.getElementById('newMsg').addEventListener('keydown', (e)=>{
+  if(e.key === 'Enter' && (e.metaKey || e.ctrlKey)){
+    document.getElementById('addBtn').click();
+  }
+});
+
+/* ---------- Informações da viagem (campos editáveis) ---------- */
+const infoFields = [
+  { key:'destino', label:'Destino', placeholder:'Brasília' },
+  { key:'data', label:'Data', placeholder:'04/09/2026' },
+  { key:'versiculo', label:'Nosso versículo', placeholder:'O versículo favorito de vocês...', fixedValue:'"Agradeço a Deus todas as vezes que me lembro de você!" — Filipenses 1:3' },
+];
+
+function renderInfo(){
+  const grid = document.getElementById('infoGrid');
+  grid.innerHTML = '';
+  infoFields.forEach(f=>{
+    const card = document.createElement('div');
+    card.className = 'info-card' + (f.key === 'versiculo' ? ' wide' : '');
+    const k = document.createElement('div');
+    k.className = 'k';
+    k.textContent = f.label;
+    const ta = document.createElement('textarea');
+    ta.className = 'mini';
+    ta.placeholder = f.placeholder;
+    ta.readOnly = true;
+    const savedOrFixed = f.fixedValue || state.info[f.key] || (f.key === 'data' ? '04/09/2026' : '');
+    ta.value = savedOrFixed;
+    if(f.fixedValue) state.info[f.key] = f.fixedValue;
+    card.appendChild(k);
+    card.appendChild(ta);
+    grid.appendChild(card);
+  });
+  saveState();
+}
+
+loadState();
+</script>
+</body>
+</html>
