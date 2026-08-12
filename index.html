@@ -578,19 +578,7 @@ function renderMessages(){
       saveState();
     };
 
-    const delBtn = document.createElement('button');
-    delBtn.className = 'icon-btn';
-    delBtn.title = 'Excluir';
-    delBtn.innerHTML = '&times;';
-    delBtn.onclick = () => {
-      state.messages = state.messages.filter(m => m.id !== msg.id);
-      if(state.featuredId === msg.id) state.featuredId = null;
-      renderMessages();
-      saveState();
-    };
-
     actions.appendChild(starBtn);
-    actions.appendChild(delBtn);
     card.appendChild(txt);
     card.appendChild(actions);
     list.appendChild(card);
