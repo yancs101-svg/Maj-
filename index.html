@@ -34,7 +34,7 @@
   }
   .stars{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;}
   .wrap{max-width:920px;margin:0 auto;position:relative;z-index:1;}
- 
+
   /* ---------- HERO ---------- */
   .hero{text-align:center;margin-bottom:64px;position:relative;}
   .sun-rig{width:280px;height:280px;margin:0 auto 8px;position:relative;}
@@ -60,7 +60,7 @@
     0%,100%{transform:rotate(-2deg);}
     50%{transform:rotate(2deg);}
   }
- 
+
   .eyebrow{
     font-size:13px;letter-spacing:.22em;text-transform:uppercase;
     color:var(--sky);margin-bottom:10px;font-weight:600;
@@ -76,7 +76,7 @@
     font-size:13.5px;max-width:420px;margin:0 auto 36px;line-height:1.5;
     opacity:.85;
   }
- 
+
   .countdown{
     display:flex;justify-content:center;gap:14px;flex-wrap:wrap;
   }
@@ -94,14 +94,14 @@
     color:var(--gold-light);font-weight:600;line-height:1;
   }
   .cbox .lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim);margin-top:8px;}
- 
+
   /* ---------- SECTIONS ---------- */
   section{margin-top:64px;}
   .section-head{margin-bottom:22px;}
   .section-head .eyebrow{margin-bottom:6px;}
   .section-head h2{font-family:'Fraunces',serif;font-size:24px;margin:0;font-weight:600;}
   .section-head p{color:var(--text-dim);font-size:14px;margin:6px 0 0;}
- 
+
   /* ---------- FEATURED ---------- */
   .featured-panel{
     background:
@@ -141,7 +141,7 @@
     position:relative;z-index:1;
   }
   .featured-empty{color:var(--text-dim);font-family:'Work Sans',sans-serif;font-style:normal;font-size:15px;}
- 
+
   /* ---------- COMPOSER ---------- */
   .composer{display:flex;gap:10px;flex-wrap:wrap;}
   textarea{
@@ -165,7 +165,7 @@
   }
   .btn-add:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(245,166,35,.35);}
   .btn-add:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none;}
- 
+
   /* ---------- MESSAGE LIST ---------- */
   .msg-list{display:flex;flex-direction:column;gap:10px;margin-top:20px;}
   .msg-card{
@@ -192,8 +192,8 @@
   .icon-btn:hover{border-color:var(--gold);color:var(--gold-light);}
   .icon-btn.active{background:var(--gold);border-color:var(--gold);color:#2b1c0a;}
   .empty-hint{color:var(--text-dim);font-size:14px;padding:18px 0;text-align:center;}
- 
- 
+
+
   /* ---------- TRIP INFO ---------- */
   .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;}
   .info-card{
@@ -206,7 +206,7 @@
     font-family:'Work Sans',sans-serif;font-size:14.5px;padding:0;min-height:44px;resize:vertical;
   }
   .info-card textarea.mini:focus{outline:none;}
- 
+
   .info-card.wide{
     grid-column:1 / -1;
     background:linear-gradient(160deg, rgba(245,166,35,.08), rgba(28,52,85,.4)), var(--navy-mid);
@@ -225,7 +225,7 @@
     font-family:'Fraunces',serif;font-style:italic;font-size:18px;line-height:1.55;
     color:var(--cream);min-height:64px;padding-left:4px;
   }
- 
+
   .sync-status{
     text-align:center;font-size:11.5px;margin-top:40px;
     color:var(--text-dim);opacity:.55;line-height:1.5;
@@ -234,19 +234,19 @@
   .sync-status.ok{color:var(--sky);}
   .sync-status.warn{color:var(--gold-light);opacity:.8;}
   .sync-status:empty{display:none;}
- 
+
   footer{
     text-align:center;margin-top:70px;color:var(--text-dim);
     font-size:13px;font-family:'Fraunces',serif;font-style:italic;
     max-width:480px;margin-left:auto;margin-right:auto;line-height:1.6;
     opacity:.8;
   }
- 
+
   @media (prefers-reduced-motion: reduce){
     .sun-rig{animation:none;}
     .featured-panel::before{animation:none;}
   }
- 
+
   /* ---------- MOBILE ---------- */
   @media (max-width: 560px){
     body{padding:32px 14px 56px;}
@@ -258,7 +258,7 @@
     h1{font-size:24px;line-height:1.25;}
     .subdate{font-size:13.5px;}
     .verse{font-size:12.5px;max-width:280px;margin-bottom:28px;}
- 
+
     .countdown{gap:6px;flex-wrap:nowrap;}
     .cbox{
       padding:10px 4px;
@@ -268,11 +268,11 @@
     }
     .cbox .num{font-size:20px;}
     .cbox .lbl{font-size:8px;letter-spacing:.06em;margin-top:4px;}
- 
+
     section{margin-top:44px;}
     .section-head h2{font-size:20px;}
     .section-head p{font-size:13px;}
- 
+
     .featured-panel{
       padding:28px 20px;
       flex-direction:column;
@@ -283,19 +283,19 @@
     .featured-panel::before{font-size:30px;}
     .featured-panel::after{width:150px;height:150px;}
     .featured-text{font-size:19px;}
- 
+
     .composer{flex-direction:column;}
     textarea{min-width:0;font-size:16px;}
     .btn-add{width:100%;padding:14px 0;}
- 
+
     .msg-card{padding:12px;border-radius:12px;}
     .msg-card .txt{font-size:14px;}
- 
+
     .info-grid{grid-template-columns:1fr;}
     .info-card{padding:14px 16px;}
     .info-card.wide{padding:20px 18px 18px;}
     .info-card.wide textarea.mini{font-size:16px;}
- 
+
     footer{margin-top:48px;font-size:11px;}
   }
 </style>
@@ -305,7 +305,7 @@
 <body>
 <canvas class="stars" id="stars"></canvas>
 <div class="wrap">
- 
+
   <div class="hero">
     <div class="sun-rig" id="sunRig">
       <div class="sun-core"><span id="daysCore">--</span></div>
@@ -313,7 +313,7 @@
     <div class="eyebrow">04 de setembro de 2026</div>
     <h1>Faltam poucos dias</h1>
     <div class="verse">"Este é o dia que o Senhor fez; regozijemo-nos e alegremo-nos nele." — Salmos 118:24</div>
- 
+
     <div class="countdown">
       <div class="cbox"><div class="num" id="d">00</div><div class="lbl">dias</div></div>
       <div class="cbox"><div class="num" id="h">00</div><div class="lbl">horas</div></div>
@@ -321,7 +321,7 @@
       <div class="cbox"><div class="num" id="s">00</div><div class="lbl">segundos</div></div>
     </div>
   </div>
- 
+
   <section>
     <div class="section-head">
       <div class="eyebrow">Em destaque</div>
@@ -333,35 +333,35 @@
       </div>
     </div>
   </section>
- 
+
   <section>
     <div class="section-head">
       <div class="eyebrow">Mural</div>
       <h2>Suas mensagens</h2>
     </div>
- 
+
     <div class="composer">
       <textarea id="newMsg" placeholder="Escreva uma mensagem..."></textarea>
       <button class="btn-add" id="addBtn">Adicionar</button>
     </div>
- 
+
     <div class="msg-list" id="msgList">
       <div class="empty-hint" id="loadingHint">Conectando...</div>
     </div>
   </section>
- 
+
   <section>
     <div class="section-head">
       <div class="eyebrow">Só nosso</div>
     </div>
     <div class="info-grid" id="infoGrid"></div>
   </section>
- 
+
   <div class="sync-status" id="syncStatus"></div>
- 
+
   <footer>"Tudo o que é verdadeiro, tudo o que é honesto, tudo o que é justo, tudo o que é puro, tudo o que é amável, tudo o que é de boa fama, se há alguma virtude, e se há algum louvor, nisso pensai." — Filipenses 4:8</footer>
 </div>
- 
+
 <script>
 /* ---------- Estrelas de fundo (canvas leve) ---------- */
 (function(){
@@ -389,7 +389,7 @@
   window.addEventListener('resize', resize);
   resize();
 })();
- 
+
 /* ---------- Pétalas do girassol (SVG-like via div) ---------- */
 (function(){
   const rig = document.getElementById('sunRig');
@@ -402,7 +402,7 @@
     rig.insertBefore(p, rig.firstChild);
   }
 })();
- 
+
 /* ---------- Contagem regressiva ---------- */
 const TARGET = new Date('2026-09-04T00:00:00-03:00').getTime();
 function pad(n){ return String(n).padStart(2,'0'); }
@@ -427,9 +427,9 @@ function tick(){
 }
 tick();
 setInterval(tick, 1000);
- 
+
 const fmt = new Intl.DateTimeFormat('pt-BR', { weekday:'long', day:'2-digit', month:'long', year:'numeric', timeZone:'America/Sao_Paulo' });
- 
+
 /* ---------- Estado + sincronização em tempo real (Firebase) ---------- */
 const firebaseConfig = {
   apiKey: "AIzaSyDIprPCSpUuseb8LxHCqbAaVURUsEwxRzI",
@@ -441,18 +441,21 @@ const firebaseConfig = {
   appId: "1:230429611041:web:fb3853e8aecc257e9b3f60",
   measurementId: "G-7PQP5BC6J8"
 };
- 
+
+/* modo dono: so aparece se o link terminar com ?dono=1 */
+const MODO_DONO = new URLSearchParams(location.search).get('dono') === '1';
+
 const LOCAL_KEY = 'maju-dashboard-local';
 let state = { messages: [], featuredId: null, info: {} };
 let firebaseReady = false;
 let dataRef = null;
- 
+
 function escapeHtml(str){
   const d = document.createElement('div');
   d.textContent = str;
   return d.innerHTML;
 }
- 
+
 /* mostra o status da conexao na propria tela */
 function setStatus(kind, text){
   const el = document.getElementById('syncStatus');
@@ -460,7 +463,7 @@ function setStatus(kind, text){
   el.className = 'sync-status ' + kind;
   el.textContent = text;
 }
- 
+
 function saveLocal(){
   try{ localStorage.setItem(LOCAL_KEY, JSON.stringify(state)); }catch(e){}
 }
@@ -470,22 +473,22 @@ function loadLocal(){
     if(raw) state = Object.assign({ messages: [], featuredId: null, info: {} }, JSON.parse(raw));
   }catch(e){}
 }
- 
+
 function loadState(){
   loadLocal();
   renderInfo();
   renderMessages();
- 
+
   if(location.protocol === 'file:'){
     setStatus('warn', 'Aberto direto do computador — a sincronizacao so funciona pelo link publicado. Por enquanto, salvando so neste aparelho.');
     return;
   }
- 
+
   if(typeof firebase === 'undefined'){
     setStatus('warn', 'Nao consegui carregar o Firebase (sem internet ou bloqueado). Salvando so neste aparelho.');
     return;
   }
- 
+
   try{
     firebase.initializeApp(firebaseConfig);
     dataRef = firebase.database().ref('dashboard-data');
@@ -493,18 +496,29 @@ function loadState(){
     setStatus('warn', 'Erro ao iniciar: ' + e.message + ' — salvando so neste aparelho.');
     return;
   }
- 
+
   setStatus('wait', 'Conectando...');
- 
+
   firebase.database().ref('.info/connected').on('value', (snap)=>{
     if(snap.val() === true && firebaseReady) setStatus('ok', 'Sincronizado');
   });
- 
+
   dataRef.on('value', (snapshot) => {
     const val = snapshot.val();
     if(val){
       state = Object.assign({ messages: [], featuredId: null, info: {} }, val);
-      if(!Array.isArray(state.messages)) state.messages = Object.values(state.messages || {});
+      // o Firebase pode devolver a lista como objeto ou com buracos
+      if(!Array.isArray(state.messages)){
+        state.messages = Object.values(state.messages || {});
+      }
+      state.messages = state.messages
+        .filter(m => m && m.text)
+        .map(m => ({
+          id: m.id || ('m_' + (m.createdAt || Date.now()) + '_' + Math.random().toString(36).slice(2,7)),
+          text: m.text,
+          createdAt: m.createdAt || Date.now()
+        }));
+      if(!state.info) state.info = {};
     }
     firebaseReady = true;
     saveLocal();
@@ -518,7 +532,7 @@ function loadState(){
     renderInfo();
   });
 }
- 
+
 function saveState(){
   saveLocal();
   if(firebaseReady && dataRef){
@@ -528,7 +542,7 @@ function saveState(){
     });
   }
 }
- 
+
 function renderFeatured(){
   const box = document.getElementById('featuredText');
   const msg = state.messages.find(m => m.id === state.featuredId);
@@ -538,7 +552,7 @@ function renderFeatured(){
     box.innerHTML = '<span class="featured-empty">Nenhuma mensagem em destaque ainda. Escreva algo abaixo e marque com a estrela ✦</span>';
   }
 }
- 
+
 function renderMessages(){
   const list = document.getElementById('msgList');
   list.innerHTML = '';
@@ -553,7 +567,7 @@ function renderMessages(){
     card.className = 'msg-card' + (msg.id === state.featuredId ? ' is-featured' : '');
     const date = new Date(msg.createdAt);
     const dateLabel = date.toLocaleDateString('pt-BR', { day:'2-digit', month:'2-digit', year:'numeric' });
- 
+
     const txt = document.createElement('div');
     txt.style.flex = '1';
     const p = document.createElement('div');
@@ -564,10 +578,10 @@ function renderMessages(){
     meta.textContent = dateLabel;
     txt.appendChild(p);
     txt.appendChild(meta);
- 
+
     const actions = document.createElement('div');
     actions.className = 'msg-actions';
- 
+
     const starBtn = document.createElement('button');
     starBtn.className = 'icon-btn' + (msg.id === state.featuredId ? ' active' : '');
     starBtn.title = 'Destacar';
@@ -577,15 +591,31 @@ function renderMessages(){
       renderMessages();
       saveState();
     };
- 
+
     actions.appendChild(starBtn);
+
+    if(MODO_DONO){
+      const delBtn = document.createElement('button');
+      delBtn.className = 'icon-btn';
+      delBtn.title = 'Excluir';
+      delBtn.innerHTML = '&times;';
+      delBtn.onclick = () => {
+        if(!confirm('Apagar esta mensagem?')) return;
+        state.messages = state.messages.filter(m => m.id !== msg.id);
+        if(state.featuredId === msg.id) state.featuredId = null;
+        renderMessages();
+        saveState();
+      };
+      actions.appendChild(delBtn);
+    }
+
     card.appendChild(txt);
     card.appendChild(actions);
     list.appendChild(card);
   });
   renderFeatured();
 }
- 
+
 document.getElementById('addBtn').onclick = () => {
   const ta = document.getElementById('newMsg');
   const val = ta.value.trim();
@@ -600,14 +630,14 @@ document.getElementById('newMsg').addEventListener('keydown', (e)=>{
     document.getElementById('addBtn').click();
   }
 });
- 
+
 /* ---------- Informações da viagem (campos editáveis) ---------- */
 const infoFields = [
   { key:'destino', label:'Destino', placeholder:'Para onde vocês vão...', fixedValue:'Brasília' },
   { key:'data', label:'Data', placeholder:'04/09/2026' },
   { key:'versiculo', label:'Nosso versículo', placeholder:'O versículo favorito de vocês...', fixedValue:'"Agradeço a Deus todas as vezes que me lembro de você!" — Filipenses 1:3' },
 ];
- 
+
 function renderInfo(){
   const grid = document.getElementById('infoGrid');
   if(!state.info) state.info = {};
@@ -628,7 +658,7 @@ function renderInfo(){
     grid.appendChild(card);
   });
 }
- 
+
 loadState();
 </script>
 </body>
